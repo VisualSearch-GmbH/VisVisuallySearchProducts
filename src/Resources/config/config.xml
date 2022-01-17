@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>API credentials</title>
+        <title lang="de-DE">API-Zugangsdaten</title>
+
+        <input-field>
+            <name>apiKey</name>
+            <label>API Key:</label>
+            <label lang="de-DE">API-Schlüssel</label>
+            <placeholder>API key here - please contact office@visualsearch.at</placeholder>
+            <placeholder lang="de-DE">API-Schlüssel hier - bitte office@visualsearch.at kontaktieren</placeholder>
+            <helpText>Please contact office@visualsearch.at to obtain your API key</helpText>
+            <helpText lang="de-DE">Kontaktieren Sie bitte office@visualsearch.at, um Ihren API-Schlüssel zu erhalten</helpText>
+        </input-field>
+
+        <component name="vis-get-credentials">
+            <name>getCredentials</name>
+        </component>
+
+        <component name="vis-verify-api-key">
+            <name>apiTest</name>
+        </component>
+    </card>
+
+    <card>
+        <title>Support</title>
+        <component name="vis-support">
+            <name>support</name>
+        </component>
+    </card>
+</config>
