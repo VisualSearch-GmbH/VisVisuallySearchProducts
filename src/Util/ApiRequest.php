@@ -11,24 +11,12 @@ namespace Vis\VisuallySearchProducts\Util;
 
 use Exception;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
-use Vis\RecommendSimilarProducts\Logging\LoggingService;
 
 class ApiRequest
 {
-    /**
-     * @var EntityRepositoryInterface
-     */
-    private $loggingRepository;
-
-    public function __construct(EntityRepositoryInterface $loggingRepository)
-    {
-        $this->loggingRepository = $loggingRepository;
-    }
 
     public function update($apiKey, $products, $systemHosts): string
     {
-        $loggingService = new LoggingService($this->loggingRepository);
-
         // Form data for the API request
         $data = ["products" => $products];
 
@@ -53,15 +41,8 @@ class ApiRequest
             $response = curl_exec($ch);
             curl_close($ch);
             $response = json_decode($response);
-
-            $loggingService->addLogEntry($response->{'message'});
-            $loggingService->saveLogging(\Shopware\Core\Framework\Context::createDefaultContext());
-
             return $response->{'message'};
         } catch (Exception $e) {
-            $loggingService->addLogEntry($e->getMessage);
-            $loggingService->saveLogging(\Shopware\Core\Framework\Context::createDefaultContext());
-
             return $e->getMessage;
         }
     }

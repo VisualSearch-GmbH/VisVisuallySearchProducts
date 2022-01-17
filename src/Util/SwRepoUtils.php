@@ -41,7 +41,7 @@ class SwRepoUtils
     public function getCrossSellingName(EntityRepositoryInterface $repository): string
     {
         $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('configurationKey', "VisRecommendSimilarProducts.config.cross"));
+        $criteria->addFilter(new EqualsFilter('configurationKey', "VisVisuallySearchProducts.config.cross"));
 
         $config = $repository->search($criteria, \Shopware\Core\Framework\Context::createDefaultContext());
 
