@@ -4,22 +4,27 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
+    <imports>
+        <import resource="./dependencies/api.xml"/>
+        <import resource="./dependencies/controller.xml"/>
+        <import resource="./dependencies/decorators.xml"/>
+        <import resource="./dependencies/subscriber.xml"/>
+    </imports>
+
     <services>
-
-        <service id="Vis\VisuallySearchProducts\Snippet\Files\de_DE\SnippetFile_de_DE">
-            <tag name="shopware.snippet.file" priority="100"/>
+        <service id="vis.visually_search_products.logger" class="Monolog\Logger">
+            <factory service="Shopware\Core\Framework\Log\LoggerFactory" method="createRotating"/>
+            <argument type="string">vis-visually-search-products</argument>
         </service>
 
-        <service id="Vis\VisuallySearchProducts\Snippet\Files\en_GB\SnippetFile_en_GB">
-            <tag name="shopware.snippet.file" priority="100"/>
-        </service>
-
-        <service id="Vis\VisuallySearchProducts\Storefront\Controller\VisuallySearchController" public="true">
+        <service id="Vis\VisuallySearchProducts\Service\HelperService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
-            <call method="setContainer">
-                <argument type="service" id="service_container"/>
-            </call>
         </service>
 
+        <service id="Vis\VisuallySearchProducts\Service\VisuallySearchApiService">
+            <argument type="service" id="Vis\VisuallySearchProducts\Api\Client\VisuallySearchClient"/>
+            <argument type="service" id="sales_channel.repository"/>
+            <argument type="service" id="vis.visually_search_products.logger"/>
+        </service>
     </services>
 </container>
