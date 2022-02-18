@@ -64,7 +64,8 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
                 'image_data' => $image
             ], [
                 RequestHeader::VIS_SYSTEM_HOSTS_HEADER => $this->getSystemHosts(),
-                RequestHeader::VIS_SYSTEM_TYPE_HEADER => RequestHeader::HEADER_SYSTEM_TYPE
+                RequestHeader::VIS_SYSTEM_TYPE_HEADER => RequestHeader::HEADER_SYSTEM_TYPE_SHOPWARE6,
+                RequestHeader::VIS_SOLUTION_TYPE_HEADER => RequestHeader::HEADER_SOLUTION_TYPE_SEARCH
             ]);
             if ($response['code'] === Response::HTTP_OK && is_array($response['result'])) {
                 return $response['result'];
@@ -93,7 +94,7 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
                 'products' => $products
             ], [
                 RequestHeader::VIS_SYSTEM_HOSTS_HEADER => $this->getSystemHosts(),
-                RequestHeader::VIS_SYSTEM_TYPE_HEADER => RequestHeader::HEADER_SYSTEM_TYPE
+                RequestHeader::VIS_SYSTEM_TYPE_HEADER => RequestHeader::HEADER_SYSTEM_TYPE_SHOPWARE6
             ]);
             return $response['message'];
         } catch (VisuallySearchApiException $exception) {
@@ -110,7 +111,9 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
     public function verifyApiKey(): bool
     {
         try {
-            $response = $this->visuallySearchClient->sendGetRequest(RequestUri::API_KEY_VERIFY_RESOURCE);
+            $response = $this->visuallySearchClient->sendGetRequest(RequestUri::API_KEY_VERIFY_RESOURCE, [
+                RequestHeader::VIS_SOLUTION_TYPE_HEADER => RequestHeader::HEADER_SOLUTION_TYPE_SIMILAR
+            ]);
             if ($response['code'] === Response::HTTP_OK && $response['message'] === "API key ok") {
                 return true;
             }

@@ -7,19 +7,42 @@
 
 namespace Vis\VisuallySearchProducts;
 
-use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Api\Util\AccessKeyHelper;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\Plugin;
-use Shopware\Core\Framework\Plugin\Context\ActivateContext;
 use Shopware\Core\Framework\Plugin\Context\InstallContext;
 use Shopware\Core\Framework\Plugin\Context\UninstallContext;
 use Shopware\Core\System\Integration\IntegrationDefinition;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\Config\FileLocator;
 use Vis\VisuallySearchProducts\Util\SwHosts;
 
 class VisuallySearchProducts extends Plugin
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function build(ContainerBuilder $container): void
+    {
+        parent::build($container);
+
+        $shopwareVersion = $container->getParameter('kernel.shopware_version');
+
+        switch (true) {
+            case version_compare($shopwareVersion, '6.4', '<'):
+                $prefix = '63';
+                break;
+            case version_compare($shopwareVersion, '6.4', '>='):
+            default:
+                $prefix = '64';
+        }
+
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__ . "/DependencyInjection/{$prefix}/"));
+        $loader->load('decorators.xml');
+    }
+
     public function install(InstallContext $installContext): void
     {
         parent::install($installContext);
@@ -50,11 +73,6 @@ class VisuallySearchProducts extends Plugin
 
         // send notification
         $this->notification($hosts, '', 'shopware6;uninstall');
-    }
-
-    public function activate(ActivateContext $activateContext): void
-    {
-        parent::activate($activateContext);
     }
 
     public function notification($hosts, $keys, $type): void
@@ -225,7 +243,7 @@ class VisuallySearchProducts extends Plugin
 
         $integrationRepository->upsert([$integrationObject], Context::createDefaultContext());
 
-        return implode(";", [$access_key,$secret_access_key]);
+        return implode(";", [$access_key, $secret_access_key]);
     }
 
     public function deleteIntegration()

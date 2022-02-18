@@ -11,7 +11,6 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
-use Shopware\Storefront\Framework\Cache\Annotation\HttpCache;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +38,7 @@ class VisuallySearchController extends AbstractController
     }
 
     /**
-     * @Route("/api/_action/vis/sim/status_version", name="api.action.vis.sim.status_version", methods={"POST"})
+     * @Route("/api/_action/vis/search/status_version", name="api.action.vis.search.status_version", methods={"POST"})
      */
     public function statusVersion(Request $request, Context $context): JsonResponse
     {
@@ -58,7 +57,7 @@ class VisuallySearchController extends AbstractController
     }
 
     /**
-     * @Route("/api/_action/vis/sim/update_categories", name="api.action.vis.sim.update_categories", methods={"POST"})
+     * @Route("/api/_action/vis/search/update_categories", name="api.action.vis.search.update_categories", methods={"POST"})
      */
     public function updateCategories(Request $request, Context $context): JsonResponse
     {
@@ -85,7 +84,7 @@ class VisuallySearchController extends AbstractController
     }
 
     /**
-     * @Route("/api/_action/vis/sim/api_key_verify", name="api.action.vis.sim.api_key_verify", methods={"POST"})
+     * @Route("/api/_action/vis/search/api_key_verify", name="api.action.vis.search.api_key_verify", methods={"POST"})
      */
     public function apiKeyVerify(Request $request, Context $context): JsonResponse
     {

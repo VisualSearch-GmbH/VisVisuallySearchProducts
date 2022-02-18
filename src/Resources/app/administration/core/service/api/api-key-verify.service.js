@@ -1,7 +1,7 @@
 import ApiService from 'src/core/service/api.service';
 
 class ApiKeyVerifyService extends ApiService {
-    constructor(httpClient, loginService, apiEndpoint = 'vis/sim') {
+    constructor(httpClient, loginService, apiEndpoint = 'vis/search') {
         super(httpClient, loginService, apiEndpoint);
     }
 

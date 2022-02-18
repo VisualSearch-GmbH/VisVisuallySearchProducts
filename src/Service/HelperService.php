@@ -54,7 +54,11 @@ class HelperService implements HelperServiceInterface
         if (!$image instanceof UploadedFile) {
             return '';
         }
-        $base64 = base64_encode($image->getContent());
+        $content = file_get_contents($image->getPathname());
+        if (!$content) {
+            return '';
+        }
+        $base64 = base64_encode($content);
         if (!$this->isBase64($base64)) {
             return '';
         }
