@@ -19,7 +19,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
 use Vis\VisuallySearchProducts\Util\SwHosts;
 
-class VisuallySearchProducts extends Plugin
+class VisVisuallySearchProducts extends Plugin
 {
     /**
      * {@inheritdoc}

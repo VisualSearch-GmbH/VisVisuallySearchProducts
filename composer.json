@@ -20,7 +20,7 @@
     }
   },
   "extra": {
-    "shopware-plugin-class": "Vis\\VisuallySearchProducts\\VisuallySearchProducts",
+    "shopware-plugin-class": "Vis\\VisuallySearchProducts\\VisVisuallySearchProducts",
     "copyright": "Copyright (c) 2021 VisualSearch GmbH",
     "label": {
       "de-DE": "Visuelle Suche nach Produkten",

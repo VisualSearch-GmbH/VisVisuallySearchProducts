@@ -32,9 +32,9 @@ class HelperService implements HelperServiceInterface
      */
     public function getPluginConfig(string $name = '')
     {
-        $domain = $this->systemConfigService->getDomain('VisuallySearchProducts');
+        $domain = $this->systemConfigService->getDomain('VisVisuallySearchProducts');
         $keys = array_map(function ($key) {
-            return str_replace('VisuallySearchProducts.config.', '', $key);
+            return str_replace('VisVisuallySearchProducts.config.', '', $key);
         }, array_keys($domain));
         $config = array_combine($keys, array_values($domain));
 

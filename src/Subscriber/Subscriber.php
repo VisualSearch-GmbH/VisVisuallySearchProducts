@@ -36,7 +36,9 @@ class Subscriber implements EventSubscriberInterface
             return;
         }
         $vis = array_combine(
-            array_map(fn($value): string => "vis[{$value}]", range(0, count($vis) - 1)),
+            array_map(function ($value): string {
+                return "vis[{$value}]";
+            }, range(0, count($vis) - 1)),
             $vis
         );
         $page->addExtension('vis', new ArrayStruct($vis));

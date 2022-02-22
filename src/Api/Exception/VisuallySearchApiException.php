@@ -15,7 +15,7 @@ class VisuallySearchApiException extends ShopwareHttpException
     /**
      * @var int|null
      */
-    private ?int $visuallySearchApiStatusCode;
+    private $visuallySearchApiStatusCode;
 
     /**
      * @param string $message

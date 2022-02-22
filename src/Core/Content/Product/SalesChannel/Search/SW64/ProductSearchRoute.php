@@ -35,12 +35,26 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
  */
 class ProductSearchRoute extends AbstractProductSearchRoute
 {
-    private EventDispatcherInterface $eventDispatcher;
+    /**
+     * @var EventDispatcherInterface
+     */
+    private $eventDispatcher;
 
-    private ProductSearchBuilderInterface $searchBuilder;
+    /**
+     * @var ProductSearchBuilderInterface
+     */
+    private $searchBuilder;
 
-    private ProductListingLoader $productListingLoader;
+    /**
+     * @var ProductListingLoader
+     */
+    private $productListingLoader;
 
+    /**
+     * @param ProductSearchBuilderInterface $searchBuilder
+     * @param EventDispatcherInterface $eventDispatcher
+     * @param ProductListingLoader $productListingLoader
+     */
     public function __construct(
         ProductSearchBuilderInterface $searchBuilder,
         EventDispatcherInterface $eventDispatcher,
@@ -51,6 +65,9 @@ class ProductSearchRoute extends AbstractProductSearchRoute
         $this->productListingLoader = $productListingLoader;
     }
 
+    /**
+     * @return AbstractProductSearchRoute
+     */
     public function getDecorated(): AbstractProductSearchRoute
     {
         throw new DecorationPatternException(self::class);
