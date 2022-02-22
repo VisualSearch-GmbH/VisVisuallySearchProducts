@@ -12,8 +12,9 @@
     }
   ],
   "require": {
-    "shopware/core": "*",
-    "shopware/storefront": "*"
+    "shopware/core": "^6.3",
+    "shopware/storefront": "^6.3",
+    "shopware/administration": "^6.3"
   },
   "autoload": {
     "psr-4": {
@@ -39,5 +40,9 @@
       "de-DE": "https://www.visualsearch.at/index.php/support",
       "en-GB": "https://www.visualsearch.at/index.php/support"
     }
+  },
+  "conflict": {
+    "shopware/storefront": "<6,>=7",
+    "shopware/administration": "<6,>=7"
   }
 }
