@@ -12,9 +12,9 @@
     }
   ],
   "require": {
-    "shopware/core": "~6.3",
-    "shopware/storefront": "~6.3",
-    "shopware/administration": "~6.3"
+    "shopware/core": "^6.3",
+    "shopware/storefront": "^6.3",
+    "shopware/administration": "^6.3"
   },
   "autoload": {
     "psr-4": {
