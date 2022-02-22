@@ -12,7 +12,9 @@
     }
   ],
   "require": {
-    "shopware/core": "~6.3"
+    "shopware/core": "~6.3",
+    "shopware/storefront": "~6.3",
+    "shopware/administration": "~6.3"
   },
   "autoload": {
     "psr-4": {
@@ -38,9 +40,5 @@
       "de-DE": "https://www.visualsearch.at/index.php/support",
       "en-GB": "https://www.visualsearch.at/index.php/support"
     }
-  },
-  "suggest": {
-    "shopware/storefront": "Require '~6.3'. Enables special search by image feature.",
-    "shopware/administration": "Require '~6.3'. Allows you to to set up the plugin easily"
   }
 }
