@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Administration\Controller;
+namespace Vis\VisuallySearchProducts\Administration\Controller;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -15,8 +15,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Vis\VisVisuallySearchProducts\Util\SwRepoUtils;
-use Vis\VisVisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
+use Vis\VisuallySearchProducts\Util\SwRepoUtils;
+use Vis\VisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
 
 /**
  * @RouteScope(scopes={"administration"})

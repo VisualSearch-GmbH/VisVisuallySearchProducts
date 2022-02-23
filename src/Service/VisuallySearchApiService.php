@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Service;
+namespace Vis\VisuallySearchProducts\Service;
 
 use Psr\Log\LoggerInterface;
 use Shopware\Core\Framework\Context;
@@ -13,10 +13,10 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 use Symfony\Component\HttpFoundation\Response;
-use Vis\VisVisuallySearchProducts\Api\Client\VisuallySearchClientInterface;
-use Vis\VisVisuallySearchProducts\Api\Exception\VisuallySearchApiException;
-use Vis\VisVisuallySearchProducts\Api\RequestHeader;
-use Vis\VisVisuallySearchProducts\Api\RequestUri;
+use Vis\VisuallySearchProducts\Api\Client\VisuallySearchClientInterface;
+use Vis\VisuallySearchProducts\Api\Exception\VisuallySearchApiException;
+use Vis\VisuallySearchProducts\Api\RequestHeader;
+use Vis\VisuallySearchProducts\Api\RequestUri;
 
 class VisuallySearchApiService implements VisuallySearchApiServiceInterface
 {

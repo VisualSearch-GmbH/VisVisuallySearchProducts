@@ -16,12 +16,12 @@
             <argument type="string">vis-visually-search-products</argument>
         </service>
 
-        <service id="Vis\VisVisuallySearchProducts\Service\HelperService">
+        <service id="Vis\VisuallySearchProducts\Service\HelperService">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
 
-        <service id="Vis\VisVisuallySearchProducts\Service\VisuallySearchApiService">
-            <argument type="service" id="Vis\VisVisuallySearchProducts\Api\Client\VisuallySearchClient"/>
+        <service id="Vis\VisuallySearchProducts\Service\VisuallySearchApiService">
+            <argument type="service" id="Vis\VisuallySearchProducts\Api\Client\VisuallySearchClient"/>
             <argument type="service" id="sales_channel.repository"/>
             <argument type="service" id="vis.visually_search_products.logger"/>
         </service>

@@ -18,11 +18,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Vis\\VisVisuallySearchProducts\\": "src/"
+      "Vis\\VisuallySearchProducts\\": "src/"
     }
   },
   "extra": {
-    "shopware-plugin-class": "Vis\\VisVisuallySearchProducts\\VisVisuallySearchProducts",
+    "shopware-plugin-class": "Vis\\VisuallySearchProducts\\VisVisuallySearchProducts",
     "copyright": "Copyright (c) 2021 VisualSearch GmbH",
     "label": {
       "de-DE": "Visuelle Suche nach Produkten",

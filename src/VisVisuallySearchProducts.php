@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts;
+namespace Vis\VisuallySearchProducts;
 
 use Shopware\Core\Framework\Api\Util\AccessKeyHelper;
 use Shopware\Core\Framework\Context;
@@ -17,7 +17,7 @@ use Shopware\Core\System\Integration\IntegrationDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\Config\FileLocator;
-use Vis\VisVisuallySearchProducts\Util\SwHosts;
+use Vis\VisuallySearchProducts\Util\SwHosts;
 
 class VisVisuallySearchProducts extends Plugin
 {

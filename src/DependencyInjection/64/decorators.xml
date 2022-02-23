@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Vis\VisVisuallySearchProducts\Core\Content\Product\SalesChannel\Search\SW64\ProductSearchRoute"
+        <service id="Vis\VisuallySearchProducts\Core\Content\Product\SalesChannel\Search\SW64\ProductSearchRoute"
                  decorates="Shopware\Core\Content\Product\SalesChannel\Search\ProductSearchRoute"
                  public="true">
             <argument type="service" id="Shopware\Core\Content\Product\SearchKeyword\ProductSearchBuilderInterface"/>

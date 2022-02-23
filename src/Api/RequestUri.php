@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Api;
+namespace Vis\VisuallySearchProducts\Api;
 
 final class RequestUri
 {

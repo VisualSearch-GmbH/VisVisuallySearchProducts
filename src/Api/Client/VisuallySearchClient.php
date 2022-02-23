@@ -5,13 +5,13 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Api\Client;
+namespace Vis\VisuallySearchProducts\Api\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Psr\Log\LoggerInterface;
-use Vis\VisVisuallySearchProducts\Api\Authentication\OAuthCredentials;
-use Vis\VisVisuallySearchProducts\Api\RequestHeader;
+use Vis\VisuallySearchProducts\Api\Authentication\OAuthCredentials;
+use Vis\VisuallySearchProducts\Api\RequestHeader;
 
 class VisuallySearchClient extends AbstractClient implements VisuallySearchClientInterface
 {

@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Service;
+namespace Vis\VisuallySearchProducts\Service;
 
 interface VisuallySearchApiServiceInterface
 {

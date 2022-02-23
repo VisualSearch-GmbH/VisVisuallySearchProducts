@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Storefront\Controller;
+namespace Vis\VisuallySearchProducts\Storefront\Controller;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
@@ -13,8 +13,8 @@ use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Vis\VisVisuallySearchProducts\Service\HelperServiceInterface;
-use Vis\VisVisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
+use Vis\VisuallySearchProducts\Service\HelperServiceInterface;
+use Vis\VisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
 
 /**
  * @RouteScope(scopes={"storefront"})

@@ -5,12 +5,12 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisVisuallySearchProducts\Api\Client;
+namespace Vis\VisuallySearchProducts\Api\Client;
 
 use Psr\Log\LoggerInterface;
-use Vis\VisVisuallySearchProducts\Api\Authentication\OAuthCredentials;
-use Vis\VisVisuallySearchProducts\Api\BaseUrl;
-use Vis\VisVisuallySearchProducts\Service\HelperServiceInterface;
+use Vis\VisuallySearchProducts\Api\Authentication\OAuthCredentials;
+use Vis\VisuallySearchProducts\Api\BaseUrl;
+use Vis\VisuallySearchProducts\Service\HelperServiceInterface;
 
 /**
  *
