@@ -7,7 +7,6 @@
 
 namespace Vis\VisuallySearchProducts\Subscriber;
 
-use Shopware\Storefront\Page\Search\SearchPageLoadedEvent;
 use Shopware\Core\Framework\Struct\ArrayStruct;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -19,14 +18,14 @@ class Subscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            SearchPageLoadedEvent::class => ['onSearchPageLoadedEvent']
+            'Shopware\Storefront\Page\Search\SearchPageLoadedEvent' => ['onSearchPageLoadedEvent']
         ];
     }
 
     /**
-     * @param SearchPageLoadedEvent $event
+     * @param \Shopware\Storefront\Page\Search\SearchPageLoadedEvent $event
      */
-    public function onSearchPageLoadedEvent(SearchPageLoadedEvent $event)
+    public function onSearchPageLoadedEvent($event)
     {
         $page = $event->getPage();
         $request = $event->getRequest();

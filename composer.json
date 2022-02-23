@@ -12,7 +12,6 @@
     }
   ],
   "require": {
-    "php": "^7.2",
     "shopware/core": "^6.3",
     "shopware/storefront": "^6.3",
     "shopware/administration": "^6.3"
@@ -21,17 +20,9 @@
     "shopware/storefront": "<6,>=7",
     "shopware/administration": "<6,>=7"
   },
-  "suggest": {
-    "shopware/administration": "Allows you to to set up the plugin easily"
-  },
   "autoload": {
     "psr-4": {
       "Vis\\VisuallySearchProducts\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Vis\\VisuallySearchProducts\\Test\\": "tests/"
     }
   },
   "extra": {
