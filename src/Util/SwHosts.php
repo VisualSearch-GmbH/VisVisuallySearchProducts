@@ -7,7 +7,7 @@ declare(strict_types=1);
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Util;
+namespace Vis\VisVisuallySearchProducts\Util;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -15,7 +15,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 class SwHosts
 {
     /**
-     * @var salesChannelRepository
+     * @var EntityRepositoryInterface
      */
     private $salesChannelRepository;
 

@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Core\Content\Product\SalesChannel\Search\SW64;
+namespace Vis\VisVisuallySearchProducts\Core\Content\Product\SalesChannel\Search\SW64;
 
 use OpenApi\Annotations as OA;
 use Shopware\Core\Content\Product\Aggregate\ProductVisibility\ProductVisibilityDefinition;

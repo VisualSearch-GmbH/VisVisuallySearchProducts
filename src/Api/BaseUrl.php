@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Api;
+namespace Vis\VisVisuallySearchProducts\Api;
 
 final class BaseUrl
 {

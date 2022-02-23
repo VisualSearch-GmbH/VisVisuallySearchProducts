@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Service;
+namespace Vis\VisVisuallySearchProducts\Service;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 

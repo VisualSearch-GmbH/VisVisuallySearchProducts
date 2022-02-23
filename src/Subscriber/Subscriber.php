@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Subscriber;
+namespace Vis\VisVisuallySearchProducts\Subscriber;
 
 use Shopware\Storefront\Page\Search\SearchPageLoadedEvent;
 use Shopware\Core\Framework\Struct\ArrayStruct;

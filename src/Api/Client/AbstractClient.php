@@ -5,13 +5,13 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Api\Client;
+namespace Vis\VisVisuallySearchProducts\Api\Client;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Vis\VisuallySearchProducts\Api\Exception\VisuallySearchApiException;
+use Vis\VisVisuallySearchProducts\Api\Exception\VisuallySearchApiException;
 
 abstract class AbstractClient
 {

@@ -5,7 +5,7 @@
  * file that was distributed with the source code.
  */
 
-namespace Vis\VisuallySearchProducts\Api\Authentication;
+namespace Vis\VisVisuallySearchProducts\Api\Authentication;
 
 use JsonSerializable;
 

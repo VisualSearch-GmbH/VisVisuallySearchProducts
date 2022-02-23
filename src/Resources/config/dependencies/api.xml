@@ -5,13 +5,13 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Vis\VisuallySearchProducts\Api\Client\VisuallySearchClientFactory">
-            <argument type="service" id="Vis\VisuallySearchProducts\Service\HelperService"/>
+        <service id="Vis\VisVisuallySearchProducts\Api\Client\VisuallySearchClientFactory">
+            <argument type="service" id="Vis\VisVisuallySearchProducts\Service\HelperService"/>
             <argument type="service" id="vis.visually_search_products.logger"/>
         </service>
 
-        <service id="Vis\VisuallySearchProducts\Api\Client\VisuallySearchClient" public="true">
-            <factory service="Vis\VisuallySearchProducts\Api\Client\VisuallySearchClientFactory" method="createClient"/>
+        <service id="Vis\VisVisuallySearchProducts\Api\Client\VisuallySearchClient" public="true">
+            <factory service="Vis\VisVisuallySearchProducts\Api\Client\VisuallySearchClientFactory" method="createClient"/>
         </service>
     </services>
 </container>
