@@ -12,13 +12,24 @@
     }
   ],
   "require": {
-    "shopware/core": "^6.3",
-    "shopware/storefront": "^6.3",
-    "shopware/administration": "^6.3"
+    "shopware/core": "^6.3|^6.4",
+    "shopware/storefront": "^6.3|^6.4"
+  },
+  "conflict": {
+    "shopware/storefront": "<6,>=7",
+    "shopware/administration": "<6,>=7"
+  },
+  "suggest": {
+    "shopware/administration": "Allows you to to set up the plugin easily"
   },
   "autoload": {
     "psr-4": {
       "Vis\\VisuallySearchProducts\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Vis\\VisuallySearchProducts\\Test\\": "tests/"
     }
   },
   "extra": {
@@ -40,9 +51,5 @@
       "de-DE": "https://www.visualsearch.at/index.php/support",
       "en-GB": "https://www.visualsearch.at/index.php/support"
     }
-  },
-  "conflict": {
-    "shopware/storefront": "<6,>=7",
-    "shopware/administration": "<6,>=7"
   }
 }
