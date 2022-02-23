@@ -12,8 +12,10 @@
     }
   ],
   "require": {
-    "shopware/core": "^6.3|^6.4",
-    "shopware/storefront": "^6.3|^6.4"
+    "php": "^7.2",
+    "shopware/core": "^6.3",
+    "shopware/storefront": "^6.3",
+    "shopware/administration": "^6.3"
   },
   "conflict": {
     "shopware/storefront": "<6,>=7",

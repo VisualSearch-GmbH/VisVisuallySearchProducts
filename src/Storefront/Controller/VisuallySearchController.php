@@ -9,7 +9,7 @@ namespace Vis\VisuallySearchProducts\Storefront\Controller;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
-use Shopware\Storefront\Controller\StorefrontController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +19,7 @@ use Vis\VisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
 /**
  * @RouteScope(scopes={"storefront"})
  */
-class VisuallySearchController extends StorefrontController
+class VisuallySearchController extends AbstractController
 {
     /**
      * @var VisuallySearchApiServiceInterface
