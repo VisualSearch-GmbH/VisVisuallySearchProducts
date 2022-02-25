@@ -38,6 +38,39 @@ class VisuallySearchController extends AbstractController
     }
 
     /**
+     * @Route("/api/_action/vis/search/api_key_verify", name="api.action.vis.search.api_key_verify", methods={"POST"})
+     */
+    public function apiKeyVerify(Request $request, Context $context): JsonResponse
+    {
+        return new JsonResponse(['success' => $this->visuallySearchApiService->verifyApiKey()]);
+    }
+
+    /**
+     * @Route("/api/_action/vis/search/get_products", name="api.action.vis.search.get_products", methods={"POST"})
+     */
+    public function getProducts(Request $request, Context $context): JsonResponse
+    {
+        // get product repository
+        $productRepository = $this->container->get('product.repository');
+
+        $swRepo = new SwRepoUtils();
+
+        // search criteria
+        $criteria = new Criteria();
+        $criteria->addAssociation('cover');
+        $criteria->addAssociation('crossSellings');
+
+        // search repository
+        $products = $swRepo->searchProducts($productRepository, $criteria);
+        if (empty($products)) {
+            return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: no products"]);
+        }
+
+        // return message
+        return new JsonResponse(["code" => 200, "products" => $products]);
+    }
+
+    /**
      * @Route("/api/_action/vis/search/status_version", name="api.action.vis.search.status_version", methods={"POST"})
      */
     public function statusVersion(Request $request, Context $context): JsonResponse
@@ -56,38 +89,4 @@ class VisuallySearchController extends AbstractController
         return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: version unknown"]);
     }
 
-    /**
-     * @Route("/api/_action/vis/search/update_categories", name="api.action.vis.search.update_categories", methods={"POST"})
-     */
-    public function updateCategories(Request $request, Context $context): JsonResponse
-    {
-        // get product repository
-        $productRepository = $this->container->get('product.repository');
-
-        $swRepo = new SwRepoUtils();
-
-        // search criteria
-        $criteria = new Criteria();
-        $criteria->addAssociation('cover');
-        $criteria->addAssociation('crossSellings');
-
-        // search repository
-        $products = $swRepo->searchProducts($productRepository, $criteria);
-        if (empty($products)) {
-            return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: no products"]);
-        }
-
-        $message = $this->visuallySearchApiService->similarCompute($products);
-
-        // return message
-        return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: " . $message]);
-    }
-
-    /**
-     * @Route("/api/_action/vis/search/api_key_verify", name="api.action.vis.search.api_key_verify", methods={"POST"})
-     */
-    public function apiKeyVerify(Request $request, Context $context): JsonResponse
-    {
-        return new JsonResponse(['success' => $this->visuallySearchApiService->verifyApiKey()]);
-    }
 }
