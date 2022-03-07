@@ -119,7 +119,7 @@ class ProductSearchRoute extends AbstractProductSearchRoute
         );
 
         if ($request->get('vis')) {
-            $criteria->addFilter(new EqualsAnyFilter('product.productNumber', $request->get('vis')));
+            $criteria->addFilter(new EqualsAnyFilter('product.id', $request->get('vis')));
         } else {
             $this->searchBuilder->build($request, $criteria, $context);
         }

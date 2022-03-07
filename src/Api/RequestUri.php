@@ -10,7 +10,7 @@ namespace Vis\VisuallySearchProducts\Api;
 final class RequestUri
 {
     public const API_KEY_VERIFY_RESOURCE = 'api_key_verify';
-    public const SEARCH_SINGLE_RESOURCE = 'search_single_demo';
+    public const SEARCH_SINGLE_RESOURCE = 'search_single';
     public const SIMILAR_COMPUTE_RESOURCE = 'similar_compute';
 
     private function __construct()
