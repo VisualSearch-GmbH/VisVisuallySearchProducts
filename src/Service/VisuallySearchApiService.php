@@ -112,7 +112,7 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
     {
         try {
             $response = $this->visuallySearchClient->sendGetRequest(RequestUri::API_KEY_VERIFY_RESOURCE, [
-                RequestHeader::VIS_SOLUTION_TYPE_HEADER => RequestHeader::HEADER_SOLUTION_TYPE_SIMILAR
+                RequestHeader::VIS_SOLUTION_TYPE_HEADER => RequestHeader::HEADER_SOLUTION_TYPE_SEARCH
             ]);
             if ($response['code'] === Response::HTTP_OK && $response['message'] === "API key ok") {
                 return true;
