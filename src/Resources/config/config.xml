@@ -10,10 +10,10 @@
             <name>apiKey</name>
             <label>API Key:</label>
             <label lang="de-DE">API-Schlüssel</label>
-            <placeholder>API key here - please contact office@visualsearch.at</placeholder>
-            <placeholder lang="de-DE">API-Schlüssel hier - bitte office@visualsearch.at kontaktieren</placeholder>
-            <helpText>Please contact office@visualsearch.at to obtain your API key</helpText>
-            <helpText lang="de-DE">Kontaktieren Sie bitte office@visualsearch.at, um Ihren API-Schlüssel zu erhalten</helpText>
+            <placeholder>Please click on the link below or send an email to office@visualsearch.at</placeholder>
+            <placeholder lang="de-DE">Klicken Sie bitte auf den untenstehenden Link oder schicken Sie uns eine E-Mail an office@visualsearch.at</placeholder>
+            <helpText>Please click on the link or send an email to office@visualsearch.at</helpText>
+            <helpText lang="de-DE">Klicken Sie bitte auf den Link oder schicken Sie uns eine E-Mail an office@visualsearch.at</helpText>
         </input-field>
 
         <component name="vis-get-credentials">
