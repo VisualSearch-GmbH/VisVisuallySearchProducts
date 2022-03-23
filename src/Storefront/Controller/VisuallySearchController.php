@@ -50,12 +50,10 @@ class VisuallySearchController extends AbstractController
     {
         $image = $request->files->get('image');
         $base64 = $this->helperService->imageToBase64($image);
-        $productNumbers = $this->visuallySearchApiService->searchSingle($base64);
-        if (empty($productNumbers)) {
-            return $this->redirectToRoute('frontend.home.page');
-        }
+        $productIds = $this->visuallySearchApiService->searchSingle($base64);
+
         return $this->redirectToRoute('frontend.search.page', [
-            'vis' => $productNumbers,
+            'vis' => $productIds,
             'search' => $image->getClientOriginalName()
         ]);
     }

@@ -46,6 +46,25 @@ class VisuallySearchController extends AbstractController
     }
 
     /**
+     * @Route("/api/_action/vis/search/status_version", name="api.action.vis.search.status_version", methods={"POST"})
+     */
+    public function statusVersion(Request $request, Context $context): JsonResponse
+    {
+        $repository = $this->container->get('plugin.repository');
+
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('name', "VisVisuallySearchProducts"));
+
+        $search = $repository->search($criteria, \Shopware\Core\Framework\Context::createDefaultContext());
+
+        foreach ($search->getEntities()->getElements() as $key => $entity) {
+            return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: V" . $entity->getVersion()]);
+        }
+
+        return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: version unknown"]);
+    }
+
+    /**
      * @Route("/api/_action/vis/search/get_products", name="api.action.vis.search.get_products", methods={"POST"})
      */
     public function getProducts(Request $request, Context $context): JsonResponse
@@ -69,24 +88,4 @@ class VisuallySearchController extends AbstractController
         // return message
         return new JsonResponse(["code" => 200, "products" => $products]);
     }
-
-    /**
-     * @Route("/api/_action/vis/search/status_version", name="api.action.vis.search.status_version", methods={"POST"})
-     */
-    public function statusVersion(Request $request, Context $context): JsonResponse
-    {
-        $repository = $this->container->get('plugin.repository');
-
-        $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('name', "VisVisuallySearchProducts"));
-
-        $search = $repository->search($criteria, \Shopware\Core\Framework\Context::createDefaultContext());
-
-        foreach ($search->getEntities()->getElements() as $key => $entity) {
-            return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: V" . $entity->getVersion()]);
-        }
-
-        return new JsonResponse(["code" => 200, "message" => "Info VisVisuallySearchProducts: version unknown"]);
-    }
-
 }
