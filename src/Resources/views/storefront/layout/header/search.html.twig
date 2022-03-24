@@ -6,32 +6,34 @@
         <div class="header-search d-flex">
 
             {% block vis_search_form %}
-                <form action="{{ path('frontend.vis.search.page') }}"
-                      method="post"
-                      enctype="multipart/form-data"
-                      data-form-auto-submit="true"
-                      class="vis-search-form mr-2">
-                    {% block vis_search_form_csrf %}
-                        {{ sw_csrf('frontend.vis.search.page') }}
-                    {% endblock %}
+                {% if config("VisVisuallySearchProducts.config.apiKey") %}
+                    <form action="{{ path('frontend.vis.search.page') }}"
+                          method="post"
+                          enctype="multipart/form-data"
+                          data-form-auto-submit="true"
+                          class="vis-search-form mr-2">
+                        {% block vis_search_form_csrf %}
+                            {{ sw_csrf('frontend.vis.search.page') }}
+                        {% endblock %}
 
-                    {% block vis_search_form_button %}
-                        <label for="visually-search-image"
-                               class="vis-search-btn btn mb-0">
+                        {% block vis_search_form_button %}
+                            <label for="visually-search-image"
+                                   class="vis-search-btn btn mb-0">
                             <span class="vis-search-icon">
                                 {% sw_icon 'photocamera' style {'color': 'primary', 'class': ' text-primary'} %}
                             </span>
-                        </label>
-                    {% endblock %}
+                            </label>
+                        {% endblock %}
 
-                    {% block vis_search_form_input %}
-                        <input id="visually-search-image"
-                               class="d-none"
-                               type="file"
-                               accept="image/*"
-                               name="image"/>
-                    {% endblock %}
-                </form>
+                        {% block vis_search_form_input %}
+                            <input id="visually-search-image"
+                                   class="d-none"
+                                   type="file"
+                                   accept="image/*"
+                                   name="image"/>
+                        {% endblock %}
+                    </form>
+                {% endif %}
             {% endblock %}
 
             {% block layout_header_search_form %}

@@ -52,6 +52,7 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
 
     /**
      * @param string $image
+     * @throw VisuallySearchApiException
      * @return array
      */
     public function searchSingle(string $image): array
@@ -67,20 +68,23 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
                 RequestHeader::VIS_SYSTEM_TYPE_HEADER => RequestHeader::HEADER_SYSTEM_TYPE_SHOPWARE6,
                 RequestHeader::VIS_SOLUTION_TYPE_HEADER => RequestHeader::HEADER_SOLUTION_TYPE_SEARCH
             ]);
-            if ($response['code'] === Response::HTTP_OK && is_array($response['result'])) {
-                return $response['result'];
+            $message = $response['message'] ?? 'API error';
+            $code = $response['code'] ?? Response::HTTP_BAD_REQUEST;
+            $result = $response['result'];
+            if ($code === Response::HTTP_OK && is_array($result)) {
+                return $result;
             }
-            if ($response['message']) {
-                $this->logger->error($response['message'], [
-                    'code' => $response['code']
-                ]);
-            }
+
+            $this->logger->error($message, [
+                'code' => $code
+            ]);
+            throw new VisuallySearchApiException($message, $code);
         } catch (VisuallySearchApiException $exception) {
             $this->logger->error($exception->getMessage(), [
                 'code' => $exception->getStatusCode()
             ]);
+            throw $exception;
         }
-        return [];
     }
 
     /**

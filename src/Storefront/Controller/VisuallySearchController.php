@@ -9,17 +9,19 @@ namespace Vis\VisuallySearchProducts\Storefront\Controller;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Shopware\Storefront\Controller\StorefrontController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Vis\VisuallySearchProducts\Api\Exception\VisuallySearchApiException;
 use Vis\VisuallySearchProducts\Service\HelperServiceInterface;
 use Vis\VisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
 
 /**
  * @RouteScope(scopes={"storefront"})
  */
-class VisuallySearchController extends AbstractController
+class VisuallySearchController extends StorefrontController
 {
     /**
      * @var VisuallySearchApiServiceInterface
@@ -50,8 +52,14 @@ class VisuallySearchController extends AbstractController
     {
         $image = $request->files->get('image');
         $base64 = $this->helperService->imageToBase64($image);
-        $productIds = $this->visuallySearchApiService->searchSingle($base64);
-
+        try {
+            $productIds = $this->visuallySearchApiService->searchSingle($base64);
+        } catch (VisuallySearchApiException $exception) {
+            if ($exception->getStatusCode() === Response::HTTP_FORBIDDEN) {
+                $this->addFlash(self::DANGER, $this->trans('visVisuallySearchProducts.invalidApiCredentialsErrorMessage'));
+            }
+            $productIds = [];
+        }
         return $this->redirectToRoute('frontend.search.page', [
             'vis' => $productIds,
             'search' => $image->getClientOriginalName()
