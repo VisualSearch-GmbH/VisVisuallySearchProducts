@@ -9,7 +9,7 @@ namespace Vis\VisuallySearchProducts\Storefront\Controller;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
-use Shopware\Storefront\Controller\StorefrontController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +21,7 @@ use Vis\VisuallySearchProducts\Service\VisuallySearchApiServiceInterface;
 /**
  * @RouteScope(scopes={"storefront"})
  */
-class VisuallySearchController extends StorefrontController
+class VisuallySearchController extends AbstractController
 {
     /**
      * @var VisuallySearchApiServiceInterface
@@ -56,7 +56,7 @@ class VisuallySearchController extends StorefrontController
             $productIds = $this->visuallySearchApiService->searchSingle($base64);
         } catch (VisuallySearchApiException $exception) {
             if ($exception->getStatusCode() === Response::HTTP_FORBIDDEN) {
-                $this->addFlash(self::DANGER, $this->trans('visVisuallySearchProducts.invalidApiCredentialsErrorMessage'));
+                $this->addFlash('danger', $this->trans('visVisuallySearchProducts.invalidApiCredentialsErrorMessage'));
             }
             $productIds = [];
         }
@@ -64,5 +64,19 @@ class VisuallySearchController extends StorefrontController
             'vis' => $productIds,
             'search' => $image->getClientOriginalName()
         ]);
+    }
+
+    /**
+     * @param string $snippet
+     * @param array $parameters
+     * @return string
+     * @throws \Psr\Container\ContainerExceptionInterface
+     * @throws \Psr\Container\NotFoundExceptionInterface
+     */
+    protected function trans(string $snippet, array $parameters = []): string
+    {
+        return $this->container
+            ->get('translator')
+            ->trans($snippet, $parameters);
     }
 }
