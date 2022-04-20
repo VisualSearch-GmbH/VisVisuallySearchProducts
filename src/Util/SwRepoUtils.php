@@ -108,7 +108,7 @@ class SwRepoUtils
         // Get all products
         foreach ($productEntities as $key => $productEntity) {
             $categories = $productEntity->getCategoryTree();
-            if ((!empty($productEntity->getName())) && ($productEntity->getCover()) && (count($categories) > 1)) {
+            if ( (!empty($productEntity->getName())) && ($productEntity->getCover()) && (!empty($categories)) ) {
                 array_push($products, [$key, $productEntity->getName(), $productEntity->getCategoryTree(), '', $productEntity->getCover()->getMedia()->getUrl()]);
             }
         }
