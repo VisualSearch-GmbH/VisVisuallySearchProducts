@@ -8,6 +8,7 @@
         <import resource="./dependencies/api.xml"/>
         <import resource="./dependencies/controller.xml"/>
         <import resource="./dependencies/subscriber.xml"/>
+        <import resource="./dependencies/decorator.xml"/>
     </imports>
 
     <services>

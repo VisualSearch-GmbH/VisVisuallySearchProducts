@@ -1,3 +1,6 @@
+# 1.0.3
+- Visual Search-Symbol bei Produktempfehlungen anzeigen
+
 # 1.0.2
 - Sucht nur Produkte auf Lager
 

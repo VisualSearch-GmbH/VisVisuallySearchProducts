@@ -20,6 +20,7 @@ use Shopware\Core\Content\Product\SearchKeyword\ProductSearchBuilderInterface;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsAnyFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 use Shopware\Core\Framework\Plugin\Exception\DecorationPatternException;
 use Shopware\Core\Framework\Routing\Annotation\Entity;
 use Shopware\Core\Framework\Routing\Annotation\RouteScope;
@@ -29,6 +30,7 @@ use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+use Vis\VisuallySearchProducts\Core\Framework\DataAbstractionLayer\Search\Sorting\ProductIdSorting;
 
 /**
  * @RouteScope(scopes={"store-api"})
@@ -117,6 +119,9 @@ class ProductSearchRoute extends AbstractProductSearchRoute
 
         if ($request->get('vis')) {
             $criteria->addFilter(new EqualsAnyFilter('product.id', $request->get('vis')));
+            $productIdSorting = new ProductIdSorting('product.id');
+            $productIdSorting->setIds($request->get('vis'));
+            $criteria->addSorting($productIdSorting);
         } else {
             $this->searchBuilder->build($request, $criteria, $context);
         }

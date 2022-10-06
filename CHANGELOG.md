@@ -1,3 +1,6 @@
+# 1.0.3
+- Show visual search icon on product recommendations
+
 # 1.0.2
 - Return only in stock products
 
