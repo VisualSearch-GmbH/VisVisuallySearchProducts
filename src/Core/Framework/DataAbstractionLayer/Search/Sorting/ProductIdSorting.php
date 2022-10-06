@@ -6,7 +6,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 
 class ProductIdSorting extends FieldSorting
 {
-    private array $ids = [];
+    private $ids = [];
 
     public function addId(string $id)
     {
