@@ -12,9 +12,10 @@
 
                 {% block vis_product_box_button %}
                     <button class="vis-search-btn btn mb-0">
-                        <span class="vis-search-icon">
-                            {% sw_icon 'photocamera' style {'color': 'primary', 'class': ' text-primary'} %}
-                        </span>
+                        <div id="text" style="line-height:15px">
+                            Click for <br> visual <br> search
+                        </div>
+                        {# Here is the icon: <span class="vis-search-icon"> {% sw_icon 'photocamera' style {'color': 'primary', 'class': ' text-primary'} %} </span> #}
                     </button>
                 {% endblock %}
 
