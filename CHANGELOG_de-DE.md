@@ -1,3 +1,6 @@
+# 1.0.4
+- Eye-Symbol
+
 # 1.0.3
 - Visual Search-Symbol bei Produktempfehlungen anzeigen
 

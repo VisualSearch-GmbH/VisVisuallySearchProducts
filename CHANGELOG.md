@@ -1,3 +1,6 @@
+# 1.0.4
+- Eye symbol
+
 # 1.0.3
 - Show visual search icon on product recommendations
 
