@@ -1,3 +1,6 @@
+# 1.0.5
+- Bildname aus der Überschrift der Suchseite entfernt
+
 # 1.0.4
 - Eye-Symbol
 

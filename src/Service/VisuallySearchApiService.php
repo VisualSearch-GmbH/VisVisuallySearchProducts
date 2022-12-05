@@ -70,7 +70,7 @@ class VisuallySearchApiService implements VisuallySearchApiServiceInterface
             ]);
             $message = $response['message'] ?? 'API error';
             $code = $response['code'] ?? Response::HTTP_BAD_REQUEST;
-            $result = $response['result'];
+            $result = $response['result'] ?? [];
             if ($code === Response::HTTP_OK && is_array($result)) {
                 return $result;
             }

@@ -119,10 +119,23 @@ class ProductSearchRoute extends AbstractProductSearchRoute
             new ProductAvailableFilter($context->getSalesChannel()->getId(), ProductVisibilityDefinition::VISIBILITY_SEARCH)
         );
 
+        $visProductIds = [];
+        $requestParams = $request->query->all();
+        foreach ($requestParams as $key => $value) {
+            if ($key === 'vis') {
+                if (!is_array($value)) {
+                    $value = [$value];
+                }
+                $visProductIds = $value;
+                break;
+            } else if (strpos($key, 'vis[') === 0) {
+                $visProductIds[] = $value;
+            }
+        }
         if ($request->get('vis')) {
-            $criteria->addFilter(new EqualsAnyFilter('product.id', $request->get('vis')));
+            $criteria->addFilter(new EqualsAnyFilter('product.id', $visProductIds));
             $productIdSorting = new ProductIdSorting('product.id');
-            $productIdSorting->setIds($request->get('vis'));
+            $productIdSorting->setIds($visProductIds);
             $criteria->addSorting($productIdSorting);
         } else {
             $this->searchBuilder->build($request, $criteria, $context);

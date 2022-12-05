@@ -1,3 +1,6 @@
+# 1.0.5
+- Removed image name from search page headline
+
 # 1.0.4
 - Eye symbol
 
